@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "3.8.1",
+    "webpack-bundle-analyzer": "^2.10.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {
+    "mypackagename": "file:/home/antoine/Documents/webpack-multi-package-example/library"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.prod.js",
+    "test": "npx babel-node index.js --presets=es2015",
+    "preinstall": "rm -rf ../library/node_modules/mypackagename",
+    "postinstall": "rm -rf node_modules/mypackagename && cp -rf ../library node_modules/mypackagename"
+  }
+}
